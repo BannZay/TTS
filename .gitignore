@@ -10,5 +10,5 @@ tools/festival/work/
 dist/
 *.zip
 # machine-local notes
-CLAUDE.local.md
+AGENTS.local.md
 .vscode/
