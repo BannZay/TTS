@@ -1,0 +1,17 @@
+## Interface: 30300
+## Title: TTS Arctic voice
+## Notes: Natural female voice (CMU Arctic slt).
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+## Dependencies: TTS_Diphone
+## X-LibTTS-Provider: arctic
+## X-LibTTS-Name: Arctic (female, natural)
+## X-LibTTS-Language: en
+## X-LibTTS-Gender: female
+## X-LibTTS-Features: speed, pause
+
+Diphones.lua
+Units.lua

@@ -1,0 +1,11 @@
+## Interface: 30300
+## Title: TTS Kokoro voice HQ
+## Notes: Optional high quality: longer units (up to 8 phonemes, also at word starts and ends, several clips each) for the Kokoro voice, fewer joins.
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+## Dependencies: TTS_Diphone, TTS_Kokoro
+
+Units.lua

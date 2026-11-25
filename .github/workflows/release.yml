@@ -1,0 +1,77 @@
+name: Release
+
+# Push a tag like v1.1 to build the zips and create a draft release.
+# A manual run builds the zips as a workflow artifact only.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  # In every zip
+  BASE: TTS TTS_Diphone
+  # One zip per line: name, then its voice folders
+  VARIANTS: |
+    KokoroHQ TTS_Kokoro TTS_KokoroHQ
+    Kokoro TTS_Kokoro
+    Arctic TTS_Arctic
+    Kal TTS_Kal
+    All TTS_Kokoro TTS_KokoroHQ TTS_Arctic TTS_Kal
+  # Everything that ships, for the version and syntax checks
+  FOLDERS: TTS TTS_Diphone TTS_Kokoro TTS_KokoroHQ TTS_Kal TTS_Arctic
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lua 5.1
+        run: sudo apt-get update && sudo apt-get install -y lua5.1
+
+      - name: Check versions
+        id: version
+        run: |
+          version=$(sed -n 's/^## *Version: *//p' TTS/TTS.toc | tr -d '\r')
+          [ -n "$version" ] || { echo "::error::no version in TTS/TTS.toc"; exit 1; }
+          for f in $FOLDERS; do
+            own=$(sed -n 's/^## *Version: *//p' "$f/$f.toc" | tr -d '\r')
+            [ "$own" = "$version" ] || { echo "::error::$f.toc has version '$own', TTS has '$version'"; exit 1; }
+          done
+          if [ "$GITHUB_REF_TYPE" = tag ] && [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match toc version $version"; exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Test
+        working-directory: tests
+        run: |
+          for t in test_*.lua; do echo "== $t"; lua5.1 "$t"; done
+
+      - name: Syntax check
+        run: |
+          find $FOLDERS -name '*.lua' -print0 | while IFS= read -r -d '' f; do
+            # luac 5.1 does not skip a UTF-8 BOM, the game client does
+            sed '1s/^\xEF\xBB\xBF//' "$f" | luac5.1 -p - || { echo "::error file=$f::syntax error"; exit 1; }
+          done
+
+      - name: Package
+        run: |
+          echo "$VARIANTS" | while read -r name voices; do
+            [ -n "$name" ] || continue
+            git archive --format=zip -o "TTS-$name.zip" HEAD $BASE $voices
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TTS-${{ steps.version.outputs.version }}
+          path: TTS-*.zip
+
+      - name: Create draft release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" TTS-*.zip --draft --verify-tag --title "TTS ${{ steps.version.outputs.version }}" --generate-notes

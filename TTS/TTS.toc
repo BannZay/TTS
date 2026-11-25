@@ -1,0 +1,19 @@
+## Interface: 30300
+## Title: TTS
+## Notes: Reads chat aloud (no TTS in 3.3.5). Needs a LibTTS voice addon.
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## SavedVariables: TTSDB
+
+Libs\LibStub\LibStub.lua
+Libs\LibTTS-1.0\LibTTS-1.0.xml
+Clean.lua
+Expand.lua
+Banned.lua
+TTS.lua
+Options.lua
+Replacements.lua
+BannedPanel.lua
+Preview.lua

@@ -1,0 +1,14 @@
+# research, large and not needed to build the addons
+experiments/
+.venv/
+__pycache__/
+# third-party word list used only by research scripts
+tools/data/20k.txt
+# generated clips of the Festival scripts
+tools/festival/work/
+# build output
+dist/
+*.zip
+# machine-local notes
+CLAUDE.local.md
+.vscode/

@@ -1,0 +1,17 @@
+## Interface: 30300
+## Title: TTS Kokoro voice
+## Notes: Natural female voice (Kokoro neural voice, cut into diphones).
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+## Dependencies: TTS_Diphone
+## X-LibTTS-Provider: kokoro
+## X-LibTTS-Name: Kokoro (female, natural)
+## X-LibTTS-Extension: TTS_KokoroHQ
+## X-LibTTS-Language: en
+## X-LibTTS-Gender: female
+## X-LibTTS-Features: speed, pause
+
+Diphones.lua

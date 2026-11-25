@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: TTS chat log (dev only)
+## Notes: Turns on the client chat log (Logs\WoWChatLog.txt) at login, to collect real text for choosing diphone units. Not shipped.
+## Author: BannZay
+## Version: 0.1
+
+ChatLog.lua

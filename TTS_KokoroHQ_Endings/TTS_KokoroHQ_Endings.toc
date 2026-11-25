@@ -1,0 +1,11 @@
+## Interface: 30300
+## Title: TTS Kokoro voice endings
+## Notes: Optional: falling endings for the last word of a sentence (Kokoro voice). Used when the "Alter last word" option is on.
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+## Dependencies: TTS_Diphone, TTS_Kokoro
+
+Units.lua

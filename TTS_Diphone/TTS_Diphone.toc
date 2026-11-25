@@ -1,0 +1,16 @@
+## Interface: 30300
+## Title: TTS Diphone engine
+## Notes: Shared text-to-speech engine for diphone voices.
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+
+Libs\LibStub\LibStub.lua
+Libs\LibTTS-1.0\LibTTS-1.0.xml
+Letters.lua
+Words.lua
+LTS.lua
+Core.lua
+Engine.lua

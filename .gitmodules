@@ -1,0 +1,3 @@
+[submodule "LibTTS-1.0"]
+	path = LibTTS-1.0
+	url = https://github.com/BannZay/LibTTS-1.0

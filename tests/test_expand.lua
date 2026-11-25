@@ -1,0 +1,32 @@
+dofile("../TTS/Expand.lua")
+local function eq(a, b, msg) assert(a == b, msg .. ": got '" .. tostring(a) .. "'") end
+eq(TTS_ExpandChat("ty"), "thank you", "ty")
+eq(TTS_ExpandChat("Thx!"), "thanks!", "case and punctuation")
+eq(TTS_ExpandChat("np, brb"), "no problem, be right back", "several")
+eq(TTS_ExpandChat("'u' there"), "'you' there", "quotes kept")
+eq(TTS_ExpandChat("don't tyrant"), "don't tyrant", "whole words only")
+eq(TTS_ExpandChat("get 2s and 3rd", nil), "get twos and third", "digits")
+local m = { yo = "hello" }
+eq(TTS_ExpandChat("yo ty", m), "hello ty", "custom map replaces the defaults")
+assert(not TTS_AddReplacement(m, "two words", "x"), "word with space refused")
+assert(not TTS_AddReplacement(m, "ab", "  "), "empty replacement refused")
+assert(TTS_AddReplacement(m, " AB ", " alpha beta "))
+eq(m.ab, "alpha beta", "key lowercased, value trimmed")
+TTS_ResetReplacements(m)
+eq(m.yo, nil, "reset drops custom"); eq(m.np, "no problem", "reset restores defaults")
+eq(TTS_ExpandChat("2+2"), "2 plus 2", "plus between numbers")
+eq(TTS_ExpandChat("ty+np"), "thank you plus no problem", "plus between words")
+assert(TTS_AddReplacement(m, "&", "and")); assert(TTS_AddReplacement(m, "+=", "plus equals"))
+assert(not TTS_AddReplacement(m, "a+", "x"), "mixed key refused")
+assert(not TTS_AddReplacement(m, "+ +", "x"), "symbol key with space refused")
+eq(TTS_ExpandChat("a+=b&c", m), "a plus equals b and c", "custom symbols, longest first")
+local old = { yo = "hello" }; TTS_AddDefaultSymbols(old)
+eq(old["+"], "plus", "migration adds + "); eq(old.yo, "hello", "migration keeps custom")
+eq(TTS_ExpandChat("tank/healer"), "tank slash healer", "slash")
+eq(TTS_ExpandChat("a&b"), "a and b", "ampersand")
+eq(TTS_ExpandChat("#1 @bob"), " number 1  at bob", "number and at")
+eq(TTS_ExpandChat("well-known"), "well-known", "hyphen untouched by default")
+print("expand tests passed")
+
+
+

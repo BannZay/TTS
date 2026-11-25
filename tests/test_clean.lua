@@ -1,0 +1,13 @@
+dofile("../TTS/Clean.lua")
+local function eq(a, b, msg) assert(a == b, msg .. ": got '" .. tostring(a) .. "'") end
+eq(TTS_CleanChat("got |cffa335ee|Hitem:19019:0:0:0:0:0:0:0:80|h[Thunderfury]|h|r today"), "got Thunderfury today", "item link")
+eq(TTS_CleanChat("|cff71d5ff|Hspell:133|h[Fireball]|h|r"), "Fireball", "spell link")
+eq(TTS_CleanChat("|cffff0000red|r text"), "red text", "colour")
+eq(TTS_CleanChat("kill {skull} then {rt1}"), "kill  skull  then  star ", "raid icons")
+eq(TTS_CleanChat("see https://example.com/a?b=1 now"), "see link now", "url")
+eq(TTS_CleanChat("see www.example.com now"), "see link now", "www")
+eq(TTS_CleanChat("nooooo!!!???"), "noo!", "stretched")
+eq(TTS_CleanChat("gg :) <3 ;-) :D"), "gg        ", "emoticons")
+eq(TTS_CleanChat("a:b see me:)"), "a:b see me:)", "not emoticons inside words")
+eq(TTS_CleanChat("hello"), "hello", "plain text unchanged")
+print("clean tests passed")

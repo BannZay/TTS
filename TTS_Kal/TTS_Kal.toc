@@ -1,0 +1,16 @@
+## Interface: 30300
+## Title: TTS Kal voice
+## Notes: Male robotic voice (Festival kal_diphone). About 22 MB.
+## Author: BannZay
+## Version: 1.0
+## X-License: MIT
+## X-Website: https://github.com/BannZay/TTS
+## LoadOnDemand: 1
+## Dependencies: TTS_Diphone
+## X-LibTTS-Provider: kal
+## X-LibTTS-Name: Kal (male, robotic)
+## X-LibTTS-Language: en
+## X-LibTTS-Gender: male
+## X-LibTTS-Features: speed, pause
+
+Diphones.lua
