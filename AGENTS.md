@@ -2,6 +2,8 @@
 
 Pseudo text-to-speech for WoW 3.3.5a, built from prerecorded diphone clips.
 
+@AGENTS.local.md
+
 ## Layout
 
 | Folder | Role |
