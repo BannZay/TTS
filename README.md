@@ -8,10 +8,10 @@ Download one zip (the links below get the latest version; older ones are on the 
 
 | Zip | Size | Voice | Folders besides `TTS` and `TTS_Diphone` | Sample |
 |---|---|---|---|---|
-| [`TTS-KokoroHQ`](https://github.com/BannZay/TTS/releases/latest/download/TTS-KokoroHQ.zip) | ~125 MB | Neural female voice, with longer units and fewer joins | `TTS_Kokoro`, `TTS_KokoroHQ` | [Listen](samples/TTS-KokoroHQ.mp4) |
-| [`TTS-Kokoro`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Kokoro.zip) | ~8 MB | The same voice without the longer units, a much smaller download | `TTS_Kokoro` | [Listen](samples/TTS-Kokoro.mp4) |
-| [`TTS-Arctic`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Arctic.zip) | ~60 MB | Female voice cut from human recordings | `TTS_Arctic` | [Listen](samples/TTS-Arctic.mp4) |
-| [`TTS-Kal`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Kal.zip) | ~20 MB | Male robotic voice | `TTS_Kal` | [Listen](samples/TTS-Kal.mp4) |
+| [`TTS-KokoroHQ`](https://github.com/BannZay/TTS/releases/latest/download/TTS-KokoroHQ.zip) | ~125 MB | Neural female voice, with longer units and fewer joins | `TTS_Kokoro`, `TTS_KokoroHQ` | https://github.com/user-attachments/assets/28e6e4a4-a540-4249-9594-fbab37131d41 |
+| [`TTS-Kokoro`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Kokoro.zip) | ~8 MB | The same voice without the longer units, a much smaller download | `TTS_Kokoro` | https://github.com/user-attachments/assets/b74006c4-70ef-4d5d-ae37-2eeb768e74a5 |
+| [`TTS-Arctic`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Arctic.zip) | ~60 MB | Female voice cut from human recordings | `TTS_Arctic` | https://github.com/user-attachments/assets/0f9d4868-7fee-4bb1-9e37-28fe780ea696 |
+| [`TTS-Kal`](https://github.com/BannZay/TTS/releases/latest/download/TTS-Kal.zip) | ~20 MB | Male robotic voice | `TTS_Kal` | https://github.com/user-attachments/assets/15359196-fd3a-4a36-953b-3e88731c1a76 |
 | [`TTS-All`](https://github.com/BannZay/TTS/releases/latest/download/TTS-All.zip) | ~200 MB | All the voices, the largest download | `TTS_Kokoro`, `TTS_KokoroHQ`, `TTS_Arctic`, `TTS_Kal` | |
 
 To have several voices, extract several zips into the same folder, then pick a voice in the options.
